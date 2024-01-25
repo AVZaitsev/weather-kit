@@ -1,0 +1,288 @@
+/* reset browser styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+.body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Fog classes
+   ========================================================================== */
+
+/* В изображении 46 спрайтов по 7 в ряд */
+.fog-frames {
+  --default-scale: 3.5;
+  position: relative;
+  width: 256px;
+  height: 256px;
+  opacity: 0.16;
+  transform: scale(var(--default-scale));
+  animation: fog-rotation 160s linear infinite;
+  mix-blend-mode: difference;
+  filter: brightness(1.2);
+}
+.fog-frames:nth-child(1) {
+  animation-delay: 0s;
+}
+.fog-frames:nth-child(2) {
+  animation-delay: 5s;
+  animation-duration: 140s;
+}
+.fog-frames:nth-child(3) {
+  animation-delay: 17s;
+}
+.fog-frames:nth-child(4) {
+  animation-delay: 24s;
+  animation-duration: 180s;
+}
+.fog-frames [class*="frame-"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 256px;
+  height: 256px;
+  background-image: url(/images/smoke-frames.webp);
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: fog-animation 11.5s linear infinite;
+  filter: drop-shadow(0px 12px 12px #00000077);
+  will-change: animation;
+}
+.fog-frames .frame-1 {
+  background-position: 0 0;
+  animation-delay: 11.25s;
+}
+.fog-frames .frame-2 {
+  background-position: -256px 0;
+  animation-delay: 11s;
+}
+.fog-frames .frame-3 {
+  background-position: -512px 0;
+  animation-delay: 10.75s;
+}
+.fog-frames .frame-4 {
+  background-position: -768px 0;
+  animation-delay: 10.5s;
+}
+.fog-frames .frame-5 {
+  background-position: -1024px 0;
+  animation-delay: 10.25s;
+}
+.fog-frames .frame-6 {
+  background-position: -1280px 0;
+  animation-delay: 10s;
+}
+.fog-frames .frame-7 {
+  background-position: -1536px 0;
+  animation-delay: 9.75s;
+}
+.fog-frames .frame-8 {
+  background-position: 0px -256px;
+  animation-delay: 9.5s;
+}
+.fog-frames .frame-9 {
+  background-position: -256px -256px;
+  animation-delay: 9.25s;
+}
+.fog-frames .frame-10 {
+  background-position: -512px -256px;
+  animation-delay: 9s;
+}
+.fog-frames .frame-11 {
+  background-position: -768px -256px;
+  animation-delay: 8.75s;
+}
+.fog-frames .frame-12 {
+  background-position: -1024px -256px;
+  animation-delay: 8.5s;
+}
+.fog-frames .frame-13 {
+  background-position: -1280px -256px;
+  animation-delay: 8.25s;
+}
+.fog-frames .frame-14 {
+  background-position: -1536px -256px;
+  animation-delay: 8s;
+}
+.fog-frames .frame-15 {
+  background-position: 0px -512px;
+  animation-delay: 7.75s;
+}
+.fog-frames .frame-16 {
+  background-position: -256px -512px;
+  animation-delay: 7.5s;
+}
+.fog-frames .frame-17 {
+  background-position: -512px -512px;
+  animation-delay: 7.25s;
+}
+.fog-frames .frame-18 {
+  background-position: -768px -512px;
+  animation-delay: 7s;
+}
+.fog-frames .frame-19 {
+  background-position: -1024px -512px;
+  animation-delay: 6.75s;
+}
+.fog-frames .frame-20 {
+  background-position: -1280px -512px;
+  animation-delay: 6.5s;
+}
+.fog-frames .frame-21 {
+  background-position: -1536px -512px;
+  animation-delay: 6.25s;
+}
+.fog-frames .frame-22 {
+  background-position: 0px -768px;
+  animation-delay: 6s;
+}
+.fog-frames .frame-23 {
+  background-position: -256px -768px;
+  animation-delay: 5.75s;
+}
+.fog-frames .frame-24 {
+  background-position: -512px -768px;
+  animation-delay: 5.5s;
+}
+.fog-frames .frame-25 {
+  background-position: -768px -768px;
+  animation-delay: 5.25s;
+}
+.fog-frames .frame-26 {
+  background-position: -1024px -768px;
+  animation-delay: 5s;
+}
+.fog-frames .frame-27 {
+  background-position: -1280px -768px;
+  animation-delay: 4.75s;
+}
+.fog-frames .frame-28 {
+  background-position: -1536px -768px;
+  animation-delay: 4.5s;
+}
+.fog-frames .frame-29 {
+  background-position: 0px -1024px;
+  animation-delay: 4.25s;
+}
+.fog-frames .frame-30 {
+  background-position: -256px -1024px;
+  animation-delay: 4s;
+}
+.fog-frames .frame-31 {
+  background-position: -512px -1024px;
+  animation-delay: 3.75s;
+}
+.fog-frames .frame-32 {
+  background-position: -768px -1024px;
+  animation-delay: 3.5s;
+}
+.fog-frames .frame-33 {
+  background-position: -1024px -1024px;
+  animation-delay: 3.25s;
+}
+.fog-frames .frame-34 {
+  background-position: -1280px -1024px;
+  animation-delay: 3s;
+}
+.fog-frames .frame-35 {
+  background-position: -1536px -1024px;
+  animation-delay: 2.75s;
+}
+.fog-frames .frame-36 {
+  background-position: 0px -1280px;
+  animation-delay: 2.5s;
+}
+.fog-frames .frame-37 {
+  background-position: -256px -1280px;
+  animation-delay: 2.25s;
+}
+.fog-frames .frame-38 {
+  background-position: -512px -1280px;
+  animation-delay: 2s;
+}
+.fog-frames .frame-39 {
+  background-position: -768px -1280px;
+  animation-delay: 1.75s;
+}
+.fog-frames .frame-40 {
+  background-position: -1024px -1280px;
+  animation-delay: 1.5s;
+}
+.fog-frames .frame-41 {
+  background-position: -1280px 1280px;
+  animation-delay: 1.25s;
+}
+.fog-frames .frame-42 {
+  background-position: -1536px -1280px;
+  animation-delay: 1s;
+}
+.fog-frames .frame-43 {
+  background-position: 0px -1536px;
+  animation-delay: 0.75s;
+}
+.fog-frames .frame-44 {
+  background-position: -256px -1536px;
+  animation-delay: 0.5s;
+}
+.fog-frames .frame-45 {
+  background-position: -512px -1536px;
+  animation-delay: 0.25s;
+}
+.fog-frames .frame-46 {
+  background-position: -768px -1536px;
+  animation-delay: 0s;
+}
+
+@keyframes fog-animation {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 0.5;
+  }
+  8% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fog-rotation {
+  0% {
+    transform: rotate(0deg) scale(var(--default-scale));
+  }
+  50% {
+    transform: rotate(180deg) scale(calc(var(--default-scale) * 1.25));
+  }
+  100% {
+    transform: rotate(360deg) scale(var(--default-scale));
+  }
+}
